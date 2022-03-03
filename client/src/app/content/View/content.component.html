@@ -1,0 +1,32 @@
+﻿<div class="p-4" *ngIf="contents">
+    <h3>Content</h3>
+    <p>Title:{{contents.name}}</p>
+    <p>Title:{{contents.description}}</p>
+    <p>Created at:{{contents.createdAt | date}}</p>
+    <b>Please find below links for reference</b>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 30%">Name</th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let file of contents.files">
+                <td>{{file.key}}</td>
+
+                <td style="white-space: nowrap">
+                    <a href="{{file.Location}}" class="btn btn-sm btn-primary mr-1">Download</a>
+                </td>
+            </tr>
+
+            <tr *ngIf="contents.files.length===0">
+                <td colspan="4" class="text-center">
+                    <span class=""> No Data</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<span class="spinner-border spinner-border-lg align-center" *ngIf="!contents"></span>

@@ -1,0 +1,22 @@
+﻿<a routerLink="/category/add" class="btn btn-sm btn-success mb-2">Add Category</a>
+<div class="p-4" *ngIf="categories">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 30%">Name</th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories">
+                <td>{{category.name}}</td>
+            </tr>
+            <tr *ngIf="categories.length===0">
+                <td colspan="4" class="text-center">
+                    <span class=""> No Data</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<span class="spinner-border spinner-border-lg align-center" *ngIf="!categories"></span>
